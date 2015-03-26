@@ -22,6 +22,7 @@ PHPFile = re.compile(r'.*\/(.*\.php)');
 MPHP = re.compile(r'M\t.*\/(.*\.php)')
 APHP = re.compile(r'A\t.*\/(.*\.php)');
 
+exclueName=['Haipeng Wang'];
 
 fow = open('./owner.txt',"w");
 #occ-eshop*//(*.php)
@@ -55,7 +56,7 @@ def startLog(line):
 
 def useReg():
     index = 0;
-    with open("C:\\Python27\\M3END.txt", 'r') as f:
+    with open("./gitlog.txt", 'r') as f:
         roundCheck = False;
         nowCot = False;
         nowAH = False;
@@ -122,6 +123,8 @@ def getOwner(key):
         Max = 0;
         owner = 'finding';
         for k in dct:
+            if k in exclueName:
+                continue;
             mark = dct[k][0] + dct[k][1];
             if mark > Max:
                 Max = mark;
